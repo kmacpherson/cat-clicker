@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.catCarrier {
+  width: 80%;
+}
+
+.menu {
+  float: left;
+  width: 5%;
+  padding: 2%;
+}
+
+.menu img {
+  width: 100%;
+  border: 1px solid black;
+}
