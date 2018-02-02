@@ -17,3 +17,32 @@ body {
   width: 100%;
   border: 1px solid black;
 }
+
+.form {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 30%;
+  justify-content: space-around;
+  align-content: space-around;
+  float: right;
+}
+
+.form img {
+
+}
+
+.form label {
+  width: 20%
+}
+
+.form input {
+  width: 60%;
+}
+
+.form button {
+  width: 30%;
+}
+.hidden {
+  display: none;
+}

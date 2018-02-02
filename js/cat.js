@@ -37,6 +37,7 @@
       model.currentCat = model.catCompendium[0];
       viewMenu.init();
       viewCat.init();
+      viewAdmin.init();
     },
     getCurrentCat: function() {
       return model.currentCat;
@@ -50,6 +51,7 @@
     incrementCatCounter: function() {
       model.currentCat.clicks++;
       viewCat.render();
+      viewAdmin.render();
     }
   };
 
@@ -76,6 +78,7 @@
         return function() {
           octopus.setCurrentCat(cat);
           viewCat.render();
+          viewAdmin.render();
         };
       })(cat));
       frag.appendChild(menuDiv);
@@ -111,6 +114,36 @@
       this.catView.append(frag);
     }
 
+  };
+
+  let viewAdmin = {
+    isVisible: true,
+    init: function() {
+      this.adminView = document.querySelector('.admin');
+      this.render();
+    },
+    render: function() {
+      this.buildAdmin();
+    },
+    buildAdmin: function() {
+      let cat = octopus.getCurrentCat();
+      let adminForm = document.querySelector('.form');
+      let adminButton = document.querySelector('.adminBtn');
+      let adminImg = document.querySelector('.adminImg');
+      let adminName = document.querySelector('.adminName');
+      let adminUrl = document.querySelector('.adminUrl');
+      let adminClicks = document.querySelector('.adminClicks');
+      if (this.isVisible) {
+        adminImg.src = cat.img;
+        adminImg.alt = cat.name;
+        adminName.value = cat.name;
+        adminUrl.value = cat.img;
+        adminClicks.value = cat.clicks;
+      } else {
+        adminButton.classList.toggle('hidden');
+        adminForm.classList.toggle('hidden');
+      }
+    }
   };
 
   octopus.init();
